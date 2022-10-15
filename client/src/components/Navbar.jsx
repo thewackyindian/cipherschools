@@ -120,7 +120,7 @@ const Navbar = () => {
       console.log(notifications)
     }
     handleNotification();
-  }, [])
+  }, [])// eslint-disable-line react-hooks/exhaustive-deps
   
   
     return (
