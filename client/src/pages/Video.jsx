@@ -9,7 +9,7 @@ import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import Comments from "../components/Comments";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
-import axios from "axios";
+import axios from "../utils/axiosConfig";
 import { dislike, fetchSuccess, like } from "../redux/videoSlice";
 // import { format } from "timeago.js";
 import { subscription } from "../redux/userSlice";

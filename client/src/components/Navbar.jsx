@@ -6,7 +6,7 @@ import VideoCallOutlinedIcon from "@mui/icons-material/VideoCallOutlined";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Upload from "./Upload";
-import axios from "axios";
+import axios from "../utils/axiosConfig";
 import bellImg from "../img/notification.png"
 import { useDispatch } from "react-redux";
 import { logout } from "../redux/userSlice";

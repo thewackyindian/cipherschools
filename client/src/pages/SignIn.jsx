@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "../utils/axiosConfig";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
