@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useLayoutEffect } from "react";
 import styled from "styled-components";
 import ThumbUpOutlinedIcon from "@mui/icons-material/ThumbUpOutlined";
 import ThumbDownOffAltOutlinedIcon from "@mui/icons-material/ThumbDownOffAltOutlined";
@@ -124,7 +124,7 @@ const Video = () => {
 
   const [channel, setChannel] = useState({});
   console.log(path);
-  useEffect(() => {
+  useLayoutEffect(() => {
     console.log("hiii");
     const fetchData = async () => {
       try {
@@ -141,7 +141,7 @@ const Video = () => {
       }
     };
      fetchData();
-  },[path,dispatch]);
+  }, []);// eslint-disable-line react-hooks/exhaustive-deps
 
   const handleLike = async () => {
     await axios.put(`/users/like/${currentVideo._id}`);
