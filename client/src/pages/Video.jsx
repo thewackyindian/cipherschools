@@ -128,9 +128,9 @@ const Video = () => {
     console.log("hiii");
     const fetchData = async () => {
       try {
-        const videoRes = await axios.get(`/videos/find/${path}`);
+        const videoRes = await axios.get(`/api/videos/find/${path}`);
         const channelRes = await axios.get(
-          `/users/find/${videoRes.data.userId}`
+          `/api/users/find/${videoRes.data.userId}`
         );
         console.log("vr", videoRes);
         setChannel(channelRes.data);
@@ -144,20 +144,20 @@ const Video = () => {
   }, []);// eslint-disable-line react-hooks/exhaustive-deps
 
   const handleLike = async () => {
-    await axios.put(`/users/like/${currentVideo._id}`);
+    await axios.put(`/api/users/like/${currentVideo._id}`);
     console.log("details",currentUser,currentVideo)
-    await axios.post(`/users/sendLikeNotification/${currentUser.name}/${currentVideo.title}/${currentVideo.userId}`)
+    await axios.post(`/api/users/sendLikeNotification/${currentUser.name}/${currentVideo.title}/${currentVideo.userId}`)
     dispatch(like(currentUser._id));
   };
   const handleDislike = async () => {
-    await axios.put(`/users/dislike/${currentVideo._id}`);
+    await axios.put(`/api/users/dislike/${currentVideo._id}`);
     dispatch(dislike(currentUser._id));
   };
 
   const handleSub = async () => {
     currentUser.subscribedUsers.includes(channel._id)
-      ? await axios.put(`/users/unsub/${channel._id}`)
-      : await axios.put(`/users/sub/${channel._id}`);
+      ? await axios.put(`/api/users/unsub/${channel._id}`)
+      : await axios.put(`/api/users/sub/${channel._id}`);
     dispatch(subscription(channel._id));
   };
   console.log(currentVideo);

@@ -96,7 +96,7 @@ const Navbar = () => {
   const handlelogout = async () => {
     // console.log(document.cookie);
 
-    const result = await axios.post('/auth/signout')
+    const result = await axios.post('/api/auth/signout')
       .catch((Err) => console.log(Err));
     console.log(result);
     if (result.data.success) {
@@ -106,7 +106,7 @@ const Navbar = () => {
   useEffect(() => {
     const handleNotification = async () => {
       const result = await axios
-        .get(`users/getNotification/${currentUser._id}`)
+        .get(`/api/users/getNotification/${currentUser._id}`)
         .catch((err) => console.log(err));
       console.log(result.data);
       const newNotifications = []

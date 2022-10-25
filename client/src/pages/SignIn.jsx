@@ -81,7 +81,7 @@ const SignIn = () => {
     e.preventDefault();
     dispatch(loginStart());
     try {
-      const res = await axios.post("/auth/signin", { name, password });
+      const res = await axios.post("/api/auth/signin", { name, password });
       dispatch(loginSuccess(res.data));
       navigate("/")
     } catch (err) {
@@ -92,11 +92,10 @@ const SignIn = () => {
 
     e.preventDefault();
     dispatch(signupStart());
-    axios.defaults.withCredentials = true;
     
     try {
       console.log("hi");
-      const res = await axios.post("/auth/signup", { name, password , email, is_creator});
+      const res = await axios.post("/api/auth/signup", { name, password , email, is_creator});
       console.log(res);
       dispatch(signupSuccess(res.data));
       navigate("/")

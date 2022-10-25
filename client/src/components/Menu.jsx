@@ -92,7 +92,7 @@ const Menu = ({ darkMode, setDarkMode }) => {
         <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
           <Logo>
             <Img src={logo} />
-            CipherSchool
+            CipherSchools Lite
           </Logo>
         </Link>
 
